@@ -1,0 +1,29 @@
+package com.example.latihanhari
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.appcompat.view.menu.MenuView
+import androidx.recyclerview.widget.RecyclerView
+
+class HariAdapter (private val dataSet: Array<String>):
+ RecyclerView.Adapter <HariAdapter.HariHolder>() {
+    class HariHolder (view: View) : RecyclerView. ViewHolder(view){
+        val textView = itemView.findViewById<TextView>(R.id.txtNamaHari)
+
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HariAdapter.HariHolder {
+       val view = LayoutInflater.from(parent.context).inflate(
+        R.layout.hari_adapter,parent,false
+       )
+        return HariHolder(view)
+        }
+
+    override fun onBindViewHolder(holder: HariAdapter.HariHolder, position: Int) {
+      holder.textView.text = dataSet[position]
+    }
+
+    override fun getItemCount()= dataSet.size
+    }
